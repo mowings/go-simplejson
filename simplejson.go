@@ -34,10 +34,10 @@ func New() *Json {
 }
 
 // Wrap an interface{}
-func FromData(data interface{}) *Json {
+func FromMap(data map[string]interface{}) *Json {
 	return &Json{
 		data: data,
-	}	
+	}
 }
 
 // Interface returns the underlying data

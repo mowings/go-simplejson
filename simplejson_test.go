@@ -246,3 +246,11 @@ func TestPathWillOverwriteExisting(t *testing.T) {
 	assert.Equal(t, nil, err)
 	assert.Equal(t, "bar", s)
 }
+
+func TestFromMap(t *testing.T) {
+	m := make(map[string]interface{})
+	m["foo"] = "bar"
+	j := FromMap(m)
+	s := j.Get("foo").MustString()
+	assert.Equal(t, "bar", s)
+}
