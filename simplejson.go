@@ -33,6 +33,13 @@ func New() *Json {
 	}
 }
 
+// Wrap an interface{}
+func FromData(data interface{}) *Json {
+	return &Json{
+		data: data,
+	}	
+}
+
 // Interface returns the underlying data
 func (j *Json) Interface() interface{} {
 	return j.data
