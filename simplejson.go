@@ -33,7 +33,7 @@ func New() *Json {
 	}
 }
 
-// Wrap an interface{}
+// Wrap a map interface
 func FromMap(data map[string]interface{}) *Json {
 	return &Json{
 		data: data,
@@ -43,6 +43,11 @@ func FromMap(data map[string]interface{}) *Json {
 // Interface returns the underlying data
 func (j *Json) Interface() interface{} {
 	return j.data
+}
+
+// Return true if not nil
+func (j *Json) IsNil() bool {
+	return (j.Interface() == nil)
 }
 
 // Encode returns its marshaled data as `[]byte`
